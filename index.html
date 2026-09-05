@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profit For Everyone ($PFE)</title>
+  <meta name="description" content="Profit For Everyone ($PFE) - The Robinhood memecoin.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💊</text></svg>">
+</head>
+<body class="flex flex-col min-h-screen selection:bg-emerald-500 selection:text-black">
+
+  <!-- Subtle ambient particle canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Clean Top Bar -->
+  <header class="relative z-20 w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-end space-x-3">
+    
+    <!-- Sound Toggle -->
+    <button id="sound-toggle" class="btn-subtle w-9 h-9 rounded-xl flex items-center justify-center text-slate-300 hover:text-white" title="Toggle Sound">
+      <!-- Speaker On -->
+      <svg id="sound-icon-on" class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+      </svg>
+      <!-- Speaker Off -->
+      <svg id="sound-icon-off" class="w-4 h-4 text-slate-500 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+      </svg>
+    </button>
+
+    <!-- Twitter Top Pill -->
+    <a href="https://x.com/PFEPons" target="_blank" rel="noopener noreferrer"
+       class="sound-click btn-subtle px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 hover:border-emerald-500/40">
+      <svg class="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      <span>@PFEPons</span>
+    </a>
+  </header>
+
+  <!-- Center Stage -->
+  <main class="relative z-10 flex-1 flex flex-col items-center justify-center max-w-4xl mx-auto px-4 sm:px-6 py-4 w-full text-center">
+    
+    <!-- 3D Interactive Tilt Showcase with Breathing Glow -->
+    <div id="tilt-container" class="tilt-card-container w-full max-w-3xl mb-8 cursor-pointer">
+      
+      <!-- Breathing Ambient Spotlight Glow -->
+      <div class="ambient-spotlight"></div>
+
+      <!-- Tilt Card -->
+      <div id="tilt-card" class="tilt-card glass-box p-2 border border-emerald-500/30">
+        <div id="tilt-glare" class="tilt-card-glare"></div>
+        <img src="assets/banner.png" alt="Profit For Everyone $PFE Banner" class="w-full h-auto rounded-xl object-cover block">
+      </div>
+
+    </div>
+
+    <!-- Minimal Text -->
+    <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-2">
+      PROFIT FOR EVERYONE <span class="text-emerald-400">($PFE)</span>
+    </h1>
+    <p class="text-slate-400 text-sm sm:text-base mb-8 font-medium">
+      The Robinhood memecoin.
+    </p>
+
+    <!-- Follow on X Action Button -->
+    <div class="flex items-center justify-center mb-10 w-full max-w-xs">
+      <a href="https://x.com/PFEPons" target="_blank" rel="noopener noreferrer"
+         class="sound-click btn-green w-full py-3.5 px-6 rounded-2xl text-sm flex items-center justify-center space-x-2.5 shadow-lg shadow-emerald-500/25">
+        <svg class="w-4 h-4 fill-current text-black" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>Follow @PFEPons on X</span>
+      </a>
+    </div>
+
+    <!-- Minimal 3 Stats -->
+    <div class="flex items-center justify-center space-x-6 text-xs text-slate-400 font-mono">
+      <div><span class="text-white font-bold">1B</span> Supply</div>
+      <div class="w-1 h-1 rounded-full bg-slate-700"></div>
+      <div><span class="text-emerald-400 font-bold">0%</span> Tax</div>
+      <div class="w-1 h-1 rounded-full bg-slate-700"></div>
+      <div><span class="text-emerald-400 font-bold">100%</span> Burnt LP</div>
+    </div>
+
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="relative z-10 py-6 text-center text-xs text-slate-600 border-t border-white/[0.04]">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>© 2026 Profit For Everyone ($PFE)</span>
+      <a href="https://x.com/PFEPons" target="_blank" rel="noopener noreferrer" class="sound-click text-slate-500 hover:text-emerald-400 transition-colors">
+        twitter.com/PFEPons
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
